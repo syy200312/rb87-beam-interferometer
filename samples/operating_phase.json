@@ -1,0 +1,4 @@
+{
+  "operating_phase_rad": 4.716083595106554,
+  "description": "Fixed simulated readout phase from joint training, used by the 256-atom demonstration."
+}

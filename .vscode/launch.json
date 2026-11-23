@@ -1,0 +1,250 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Rb87 00 - 运行入门示例",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/run_demo.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": []
+    },
+    {
+      "name": "Rb87 01 - 快速重放已制备原子",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--config",
+        "beam_outputs/raman_power_calibration/config_power_driven.json",
+        "--source-state-h5",
+        "beam_outputs/endpoint_comparison/native_validation/baseline/nominal/prepared_0.h5",
+        "--no-optical-pumping",
+        "--no-noise",
+        "--output",
+        "outputs/vscode/phase"
+      ]
+    },
+    {
+      "name": "Rb87 02 - 光泵浦（32 个 MOT 出口原子）",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--config",
+        "beam_configs/optical_pumping_optimized.json",
+        "--source-state-h5",
+        "beam_outputs/pylcp_multilevel_32/source_ensemble.h5",
+        "--no-noise",
+        "--output",
+        "outputs/vscode/pumping_32"
+      ]
+    },
+    {
+      "name": "Rb87 03 - 从 MOT 开始（8 个原子）",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--config",
+        "beam_configs/optical_pumping_optimized.json",
+        "--atoms",
+        "8",
+        "--no-noise",
+        "--output",
+        "outputs/vscode/full_8"
+      ]
+    },
+    {
+      "name": "Rb87 04 - 全部单元测试",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "unittest",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "test_*.py",
+        "-v"
+      ]
+    },
+    {
+      "name": "Rb87 05 - 原子束流拉比振荡",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--config",
+        "beam_outputs/raman_power_calibration/config_power_driven.json",
+        "--source-state-h5",
+        "beam_outputs/endpoint_comparison/native_validation/baseline/nominal/prepared_0.h5",
+        "--no-optical-pumping",
+        "--no-noise",
+        "--experiment",
+        "rabi",
+        "--output",
+        "outputs/vscode/rabi"
+      ]
+    },
+    {
+      "name": "Rb87 06 - 三脉冲变啁啾条纹",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--config",
+        "beam_outputs/raman_power_calibration/config_power_driven.json",
+        "--source-state-h5",
+        "beam_outputs/endpoint_comparison/native_validation/baseline/nominal/prepared_0.h5",
+        "--no-optical-pumping",
+        "--no-noise",
+        "--experiment",
+        "chirp",
+        "--output",
+        "outputs/vscode/chirp"
+      ]
+    },
+    {
+      "name": "Rb87 07 - 拉比与两类干涉条纹",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--config",
+        "beam_outputs/raman_power_calibration/config_power_driven.json",
+        "--source-state-h5",
+        "beam_outputs/endpoint_comparison/native_validation/baseline/nominal/prepared_0.h5",
+        "--no-optical-pumping",
+        "--no-noise",
+        "--experiment",
+        "all",
+        "--output",
+        "outputs/vscode/scans"
+      ]
+    },
+    {
+      "name": "Rb87 08 - 原子通量与三脉冲条纹对比度",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam.flux_visibility_study",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--gate-ms",
+        "10",
+        "--repeats",
+        "600",
+        "--output",
+        "outputs/vscode/flux_visibility"
+      ]
+    },
+    {
+      "name": "Rb87 09 - 固定工作相位的短期灵敏度",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "tmp.evaluate_gyro_sensitivity",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--output",
+        "outputs/vscode/gyro_sensitivity_estimate.json"
+      ]
+    }
+  ]
+}

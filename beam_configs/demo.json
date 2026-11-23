@@ -1,0 +1,97 @@
+{
+  "seed": 87,
+  "source": {
+    "mode": "mot",
+    "n_atoms": 2000,
+    "incident_flux_per_s": 10000000000.0,
+    "initial_temperature_K": 0.002,
+    "initial_radius_m": 0.001,
+    "initial_vz_m_s": 3.0,
+    "initial_sigma_vz_m_s": 0.5,
+    "mot_length_m": 0.04,
+    "chamber_radius_m": 0.005,
+    "exit_radius_m": 0.0005,
+    "cooling_waist_m": 0.008,
+    "cooling_saturation": 5.0,
+    "cooling_detuning_gamma": -1.5,
+    "magnetic_gradient_T_m": 0.1,
+    "effective_magnetic_moment_muB": 1.0,
+    "axial_forward_saturation": 0.6,
+    "axial_backward_saturation": 0.4,
+    "axial_detuning_gamma": -1.0,
+    "cooling_spectrum_gamma": [
+      0.0
+    ],
+    "cooling_spectrum_weights": [
+      1.0
+    ],
+    "axial_spectrum_gamma": [
+      0.0
+    ],
+    "axial_spectrum_weights": [
+      1.0
+    ],
+    "dt_s": 2e-06,
+    "max_time_s": 0.025,
+    "calibrated_mean_vz_m_s": 10.96,
+    "calibrated_fwhm_vz_m_s": 2.92,
+    "calibrated_transverse_temperature_K": 1.69e-05,
+    "calibrated_flux_per_s": 4300000000.0,
+    "calibrated_flux_is_measured": true,
+    "calibration_reference": "https://arxiv.org/abs/2312.12027",
+    "calibrated_point_source": false
+  },
+  "raman": {
+    "first_zone_z_m": 0.03,
+    "zone_spacing_m": 0.01045,
+    "waist_z_m": 0.00025,
+    "waist_y_m": 0.006,
+    "envelope": "gaussian",
+    "rectangular_width_m": 0.001,
+    "reference_vz_m_s": 11.0,
+    "k_direction": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "acceleration_m_s2": [
+      0.0,
+      -9.80665,
+      0.0
+    ],
+    "rotation_rad_s": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "two_photon_detuning_Hz": 0.0,
+    "single_photon_detuning_Hz": 1073000000.0,
+    "chirp_rad_s2": 0.0,
+    "differential_light_shift_Hz": 0.0,
+    "phase_offsets_rad": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preparation_efficiency": 0.8,
+    "remove_unprepared": true,
+    "spectator_F2_fraction": 0.0,
+    "selection_sigma_vx_m_s": 0.01,
+    "integration_steps": 96,
+    "envelope_half_widths": 3.0,
+    "scan_points": 41
+  },
+  "detection": {
+    "z_m": 0.075,
+    "aperture_radius_m": 0.006,
+    "interaction_length_m": 0.001,
+    "saturation_F1": 0.5,
+    "saturation_F2": 0.7,
+    "collection_fraction": 0.01,
+    "quantum_efficiency": 0.5,
+    "gate_s": 0.01,
+    "background_counts": 100.0,
+    "electronic_noise_std_counts": 5.0,
+    "noise": true
+  }
+}

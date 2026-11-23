@@ -1,0 +1,177 @@
+{
+  "seed": 87,
+  "source": {
+    "mode": "pylcp",
+    "n_atoms": 32,
+    "incident_flux_per_s": 10000000000.0,
+    "initial_temperature_K": 0.002,
+    "initial_radius_m": 0.001,
+    "initial_vz_m_s": 3.0,
+    "initial_sigma_vz_m_s": 0.5,
+    "mot_length_m": 0.04,
+    "chamber_radius_m": 0.005,
+    "exit_radius_m": 0.0005,
+    "cooling_waist_m": 0.008,
+    "cooling_saturation": 5.27,
+    "cooling_detuning_gamma": -4.0,
+    "magnetic_gradient_T_m": 0.1,
+    "effective_magnetic_moment_muB": 1.0,
+    "axial_forward_saturation": 2.63,
+    "axial_backward_saturation": 2.63,
+    "axial_detuning_gamma": -4.0,
+    "cooling_spectrum_gamma": [
+      0.0
+    ],
+    "cooling_spectrum_weights": [
+      1.0
+    ],
+    "axial_spectrum_gamma": [
+      0.0
+    ],
+    "axial_spectrum_weights": [
+      1.0
+    ],
+    "dt_s": 2e-06,
+    "max_time_s": 0.025,
+    "calibrated_mean_vz_m_s": 10.96,
+    "calibrated_fwhm_vz_m_s": 2.92,
+    "calibrated_transverse_temperature_K": 1.69e-05,
+    "calibrated_flux_per_s": 4300000000.0,
+    "calibrated_flux_is_measured": true,
+    "calibration_reference": "https://arxiv.org/abs/2312.12027",
+    "calibrated_point_source": false
+  },
+  "raman": {
+    "first_zone_z_m": 0.03,
+    "zone_spacing_m": 0.01425,
+    "waist_z_m": 1.8e-05,
+    "waist_y_m": 0.006,
+    "envelope": "gaussian",
+    "rectangular_width_m": 0.001,
+    "reference_vz_m_s": 15.0,
+    "k_direction": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "acceleration_m_s2": [
+      0.0,
+      -9.80665,
+      0.0
+    ],
+    "rotation_rad_s": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "two_photon_detuning_Hz": -25000.0,
+    "single_photon_detuning_Hz": 1073000000.0,
+    "peak_rabi_Hz": 0.0,
+    "coupling_model": "rb87_d2_power",
+    "beam1_power_W": 0.00021400027336632906,
+    "beam2_power_W": 0.00012043172989188463,
+    "detuning_reference_Fprime": 1,
+    "polarization1": "sigma_plus",
+    "polarization2": "sigma_plus",
+    "quantization_axis": [
+      1.0,
+      0.0,
+      0.0
+    ],
+    "spin_transport": "adiabatic_from_z",
+    "chirp_rad_s2": 0.0,
+    "differential_light_shift_Hz": 0.0,
+    "phase_offsets_rad": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preparation_efficiency": 0.8,
+    "remove_unprepared": true,
+    "spectator_F2_fraction": 0.0,
+    "state_handling": "inherit",
+    "selection_sigma_vx_m_s": 0.0,
+    "integration_steps": 192,
+    "envelope_half_widths": 3.0,
+    "scan_points": 41
+  },
+  "detection": {
+    "z_m": 0.075,
+    "aperture_radius_m": 0.006,
+    "interaction_length_m": 0.001,
+    "saturation_F1": 0.5,
+    "saturation_F2": 0.7,
+    "collection_fraction": 0.01,
+    "quantum_efficiency": 0.5,
+    "gate_s": 0.01,
+    "background_counts": 100.0,
+    "electronic_noise_std_counts": 5.0,
+    "noise": false
+  },
+  "pylcp": {
+    "repump_saturation": 0.5,
+    "repump_axial_saturation": 0.1,
+    "repump_Fprime": 2,
+    "repump_detuning_gamma": 0.0,
+    "cooling_fm_frequency_Hz": 18195000.0,
+    "cooling_fm_index": 0.5,
+    "axial_fm_frequency_Hz": 36390000.0,
+    "axial_fm_index": 0.5,
+    "repump_fm_frequency_Hz": 0.0,
+    "repump_fm_index": 0.0,
+    "sideband_order": 3,
+    "bias_field_T": [
+      0.0,
+      0.0,
+      1e-05
+    ],
+    "hole_edge_m": 2.5e-05,
+    "initial_z_m": 1e-05,
+    "initial_ground_F2_fraction": 0.625,
+    "initial_ground_populations": [],
+    "gravity_m_s2": [
+      0.0,
+      -9.80665,
+      0.0
+    ],
+    "recoil_model": "diffusion",
+    "recoil_chunk_s": 0.0002,
+    "max_motion_step_s": 0.0002,
+    "rtol": 1e-05,
+    "population_atol": 1e-09,
+    "include_magnetic_force": true
+  },
+  "pumping": {
+    "enabled": true,
+    "center_z_m": 0.014,
+    "waist_z_m": 0.001,
+    "waist_y_m": 0.00625,
+    "half_widths": 2.0,
+    "transfer_power_W": 5.9999999999999995e-05,
+    "dark_power_W": 1.9999999999999998e-05,
+    "saturation_intensity_W_m2": 16.69,
+    "transfer_detuning_Hz": 1500000.0,
+    "dark_detuning_Hz": 1500000.0,
+    "bias_field_T": 0.000205,
+    "pi_power_fraction": 0.0,
+    "forward_power_fraction": 0.5,
+    "recoil_model": "diffusion",
+    "recoil_chunk_s": 2.5e-05,
+    "max_step_s": 5e-05,
+    "rtol": 1e-06,
+    "population_atol": 1e-10,
+    "diffusion_quadrature_order": 3,
+    "rate_backend": "fixed_axis"
+  },
+  "rabi_scan": {
+    "area_min_pi": 0.0,
+    "area_max_pi": 2.0,
+    "points": 101,
+    "transit_area_pi": 2.0
+  },
+  "chirp_scan": {
+    "center_Hz_s": 0.0,
+    "half_range_Hz_s": 2500000.0,
+    "points": 121
+  }
+}
