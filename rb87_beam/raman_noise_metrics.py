@@ -89,6 +89,19 @@ def _jackknife_se(delete_one):
     return float(np.sqrt((len(d) - 1) * np.mean((delta - np.mean(delta)) ** 2)))
 
 
+def draw_fluorescence(p, detector, rng):
+    """Draw one independent two-channel gate for each leading index of P(F2)."""
+    def channel(probability, q, gain):
+        n_atoms = rng.poisson(detector.atom_counts * probability)
+        photons = rng.poisson(np.einsum("...a,a->...", n_atoms, q) + detector.background)
+        net = photons - detector.background + rng.normal(0., detector.electronic_std, p.shape[:-1])
+        return net / gain
+
+    f1 = channel(1 - p, detector.q1, detector.gain1)
+    f2 = channel(p, detector.q2, detector.gain2)
+    return np.divide(f2, f1 + f2, where=(f1 + f2 > 0), out=np.full(p.shape[:-1], np.nan))
+
+
 def _scan_draws(h, detector, phases, scans, rng):
     """Resample a joint whole-ensemble technical realization for each gate, then draw counts."""
     design = np.column_stack((np.ones(len(phases)), np.cos(phases), np.sin(phases)))
@@ -100,16 +113,7 @@ def _scan_draws(h, detector, phases, scans, rng):
         p = np.einsum("rpca,pc->rpa", h[ids], design)
         p = np.clip(p, 0, 1)  # only roundoff after full harmonic bound validation
 
-        def channel(probability, q, gain):
-            n_atoms = rng.poisson(detector.atom_counts * probability)
-            photons = rng.poisson(np.einsum("rpa,a->rp", n_atoms, q) + detector.background)
-            net = (photons - detector.background
-                   + rng.normal(0., detector.electronic_std, (count, len(phases))))
-            return net / gain
-
-        f1 = channel(1 - p, detector.q1, detector.gain1)
-        f2 = channel(p, detector.q2, detector.gain2)
-        np.divide(f2, f1 + f2, where=(f1 + f2 > 0), out=scan_data[start:start + count])
+        scan_data[start:start + count] = draw_fluorescence(p, detector, rng)
     return scan_data
 
 
