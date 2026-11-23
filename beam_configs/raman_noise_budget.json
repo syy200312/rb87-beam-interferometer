@@ -1,0 +1,19 @@
+{
+  "phase_rms_rad": 0.05,
+  "phase_zone_correlation": 0.35,
+  "mirror_displacement_rms_m": 3e-9,
+  "mirror_zone_correlation": 0.8,
+  "bias_field_G": 0.1,
+  "field_rms_G": 0.005,
+  "field_zone_correlation": 0.5,
+  "fractional_power_rms": 0.02,
+  "log_power_zone_correlation": 0.65,
+  "gate_s": 0.01,
+  "record_period_s": 0.02,
+  "operating_phase_rad": 4.716083595106554,
+  "rotation_step_rad_s": 5e-7,
+  "records": 4096,
+  "scans": 256,
+  "phase_points": 41,
+  "seed": 27887
+}

@@ -44,6 +44,8 @@ python -m rb87_beam --help
 
 ## 重放、参数扫描和结果
 
+要在相同有效通量下比较双光子相位、反射镜位移、纵向磁场和光强噪声，在 VS Code 选择 **Rb87 10**，或运行 `python -m rb87_beam.raman_noise_study`。默认输出到 `beam_outputs/raman_noise/`。噪声幅度与三区相关性均可编辑。计算约定和输出字段见[三脉冲噪声使用说明](README_Raman噪声.md)。
+
 | 想改变的设置 | 入口或字段 |
 |---|---|
 | 原子数和随机种子 | `--atoms`、`--seed`，用于新生成的源。HDF5 重放保留其原子集合 |

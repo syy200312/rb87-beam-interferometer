@@ -245,6 +245,27 @@
         "--output",
         "outputs/vscode/gyro_sensitivity_estimate.json"
       ]
+    },
+    {
+      "name": "Rb87 10 - 三脉冲噪声与短期灵敏度",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "rb87_beam.raman_noise_study",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONIOENCODING": "utf-8",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "MPLBACKEND": "Agg"
+      },
+      "args": [
+        "--noise-config",
+        "beam_configs/raman_noise_budget.json",
+        "--output",
+        "beam_outputs/raman_noise"
+      ]
     }
   ]
 }

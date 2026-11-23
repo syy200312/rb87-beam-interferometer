@@ -264,7 +264,12 @@ def raman_peak_frequency(config):
 
 
 def raman_zone(state, ensemble, config, zone_index, scanned_phase=0.0,
-               amplitude_scale=1.0, return_history=False):
+               amplitude_scale=1.0, return_history=False, clock_shift_Hz=0.0):
+    """Propagate a finite spatial pulse with an optional uniform clock shift.
+
+    A positive clock_shift_Hz increases the atomic transition frequency. This
+    contribution acts throughout the pulse, independent of the optical envelope.
+    """
     if not np.isfinite(amplitude_scale) or amplitude_scale < 0:
         raise ValueError("Raman amplitude_scale must be finite and nonnegative")
     z = config.first_zone_z_m + zone_index * config.zone_spacing_m
@@ -301,7 +306,7 @@ def raman_zone(state, ensemble, config, zone_index, scanned_phase=0.0,
         laser_offset = 2 * np.pi * config.two_photon_detuning_Hz + k[2] * config.reference_vz_m_s
         phase = r @ k - laser_offset * t - 0.5 * config.chirp_rad_s2 * t ** 2 + offset
         phase_rate = v @ k - laser_offset - config.chirp_rad_s2 * t
-        light_shift = 2 * np.pi * peak_light_shift * envelope
+        light_shift = 2 * np.pi * (peak_light_shift * envelope + clock_shift_Hz)
         state = pulse_step(state, peak * envelope, phase, phase_rate, dt, light_shift)
         if return_history:
             history.append(state.copy())

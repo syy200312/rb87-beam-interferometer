@@ -12,7 +12,9 @@ from .presets import thesis_preset, broadband_mot_preset, pylcp_mot_preset
 
 
 def main():
-    parser = argparse.ArgumentParser(description="87Rb spatial three-zone Raman beam interferometer (SI units)")
+    parser = argparse.ArgumentParser(description="87Rb spatial three-zone Raman beam interferometer (SI units)",
+        epilog="Compare phase, mirror, magnetic, and intensity noise at fixed flux with "
+               "python -m rb87_beam.raman_noise_study --help")
     settings = parser.add_mutually_exclusive_group()
     settings.add_argument("--config", type=Path, help="JSON configuration; omitted fields use defaults")
     settings.add_argument("--preset", choices=("thesis", "broadband-mot", "pylcp-mot"), help="Documented starting points")
